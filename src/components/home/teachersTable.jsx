@@ -11,10 +11,10 @@ async function getTeachers() {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log('Teachers:', data);
+    // console.log('Teachers:', data);
     return data;
   } catch (error) {
-    console.error('Error fetching teachers:', error);
+    // console.error('Error fetching teachers:', error);
     return []; // Return an empty array if there's an error
   }
 }
@@ -30,10 +30,10 @@ async function deleteTeacher(id) {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    console.log(`Teacher with ID ${id} deleted successfully`);
+    // console.log(`Teacher with ID ${id} deleted successfully`);
     return true;
   } catch (error) {
-    console.error(`Error deleting teacher with ID ${id}:`, error);
+    // console.error(`Error deleting teacher with ID ${id}:`, error);
     return false;
   }
 }

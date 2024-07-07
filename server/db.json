@@ -102,16 +102,6 @@
       "id": "C013",
       "name": "Fitness Training",
       "teacherCode": "T005"
-    },
-    {
-      "id": "C014",
-      "name": "Sports Medicine",
-      "teacherCode": "T005"
-    },
-    {
-      "id": "C015",
-      "name": "Nutrition",
-      "teacherCode": "T005"
     }
   ],
   "universities": [

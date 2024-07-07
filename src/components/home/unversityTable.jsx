@@ -11,11 +11,30 @@ async function getUniversities() {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log('Universities:', data);
+    // console.log('Universities:', data);
     return data;
   } catch (error) {
-    console.error('Error fetching universities:', error);
+    // console.error('Error fetching universities:', error);
     return []; // Return an empty array if there's an error
+  }
+}
+
+async function deleteUniversity(id) {
+  try {
+    const response = await fetch(`http://localhost:3000/universities/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    // console.log(`university with ID ${id} deleted successfully`);
+    return true;
+  } catch (error) {
+    // console.error(`Error deleting university with ID ${id}:`, error);
+    return false;
   }
 }
 
@@ -26,17 +45,17 @@ export default function UniversityTable() {
     getUniversities().then(data => {
       setUniversities(data);
     });
-  }, []);
+  }, [universities]);
 
-  const deleteUniversity = (code) => {
-    console.log(`Delete university with code: ${code}`);
+  const _deleteUniversity = (code) => {
+    deleteUniversity(code);
   };
 
   const actionBodyTemplate = (rowData) => {
     return (
       <div className="flex gap-4">
         <Button label="Editar" className="p-button-success p-mr-2" />
-        <Button label="Eliminar" className="p-button-danger" onClick={() => deleteUniversity(rowData.code)} />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => _deleteUniversity(rowData.id)} />
       </div>
     );
   };
@@ -49,7 +68,7 @@ export default function UniversityTable() {
       </div>
       <TableHeader />
       <DataTable value={universities} showGridlines tableStyle={{ minWidth: "50rem" }}>
-        <Column field="code" header="ID"></Column>
+        <Column field="id" header="Id"></Column>
         <Column field="name" header="Nombre"></Column>
         <Column field="category" header="Categoría"></Column>
         <Column field="description" header="Descripción"></Column>

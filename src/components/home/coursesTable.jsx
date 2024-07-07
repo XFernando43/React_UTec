@@ -11,10 +11,8 @@ async function getCourses() {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log('Courses:', data);
     return data;
   } catch (error) {
-    console.error('Error fetching courses:', error);
     return []; // Return an empty array if there's an error
   }
 }
@@ -45,21 +43,17 @@ export default function CourseTable() {
     getCourses().then(data => {
       setCourses(data);
     });
-  }, []);
+  }, [courses]);
 
   const handleDeleteUniversity = async (code) => {
-    const deleted = await deleteUniversity(code);
-    if (deleted) {
-      const updatedCourses = courses.filter(course => course.code !== code);
-      setCourses(updatedCourses);
-    }
+    deleteUniversity(code);
   };
 
   const actionBodyTemplate = (rowData) => {
     return (
       <div className="flex gap-4">
         <Button label="Editar" className="p-button-success p-mr-2" />
-        <Button label="Eliminar" className="p-button-danger" onClick={() => handleDeleteUniversity(rowData.code)} />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => handleDeleteUniversity(rowData.id)} />
       </div>
     );
   };
