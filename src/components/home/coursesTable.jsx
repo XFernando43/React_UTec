@@ -1,6 +1,8 @@
 import React from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import TableHeader from "./tableHeader";
+
 export default function CoursesTable() {
     const [products] = React.useState([
         {
@@ -55,6 +57,7 @@ export default function CoursesTable() {
                 <i className="pi pi-server"></i>
                 <p className="font-semibold text-2xl">Courses Managment</p>
             </div>
+            <TableHeader/>
             <DataTable value={products} showGridlines tableStyle={{ minWidth: "50rem" }}>
                 <Column field="code" header="ID"></Column>
                 <Column field="name" header="NOMBRE"></Column>
