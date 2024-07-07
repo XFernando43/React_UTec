@@ -4,18 +4,14 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { Card } from 'primereact/card';
-import { Image } from 'primereact/image';
 
 import React from 'react';
 
-const header = (
-    <Image src="https://static-cdn.jtvnw.net/jtv_user_pictures/b661c2ac-7563-4815-8762-0f0a8686c87e-profile_image-300x300.png" alt="Image" width="250" className='pointer-events-none'/>
-);
 
 const footer = (
     <div className="flex gap-3 mt-1">
-        <Button label="Register" severity="warning"  outlined className="w-full hover:bg-red-600 hover:text-white" />
-        <Button label="Login" className="w-full" />
+        <Button label="Crear" severity="success"  outlined className="w-full hover:bg-green-400 hover:text-white" />
+        <Button label="Cancelar" severity='danger' className="w-full" />
     </div>
 );
 
@@ -42,16 +38,21 @@ export default function TableHeader() {
             />
 
             <Dialog header="Registrar" visible={visible} style={{ width: '50vw' }} onHide={() => { if (!visible) return; setVisible(false); }}>
-                <Card ntitle="IDBI Login" subTitle="Ingrese su usuario" footer={footer} header={header} className="max-w-lg select-none rounded-xl">
+                <Card ntitle="IDBI Login" subTitle="Ingrese datos" footer={footer} className=" bg-slate-200 select-none rounded-xl">
                     <div className="flex flex-col gap-4">
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="email">Email</label>
-                            <InputText value={email} onChange={(e) => setEmail(e.target.value)} type="mail" id="email" aria-describedby="Email" />
+                            <label htmlFor="nombre">nombre</label>
+                            <InputText value={email} onChange={(e) => setEmail(e.target.value)} type="text" id="nombre" aria-describedby="nombre" />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="password">Password</label>
-                            <InputText value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" aria-describedby="password" />
+                            <label htmlFor="autor">autor</label>
+                            <InputText value={password} onChange={(e) => setPassword(e.target.value)} type="autor" id="autor" aria-describedby="autor" />
                         </div>
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="descripción">descripción</label>
+                            <InputText value={password} onChange={(e) => setPassword(e.target.value)} type="descripción" id="descripción" aria-describedby="descripción" />
+                        </div>
+                        
                     </div>
                 </Card>
             </Dialog>
