@@ -1,6 +1,8 @@
 // import TableHeader from "./tableHeader"
 import TeacherTable from "./teachersTable"
 import ManagmentTable from "./TableManagment"
+import UniversityTable from "./unversityTable"
+import CoursesTable from "./coursesTable"
 export default function TableSection(){
     return(
     <>
@@ -9,6 +11,8 @@ export default function TableSection(){
                 
                 <TeacherTable/>
                 <ManagmentTable/>
+                <UniversityTable/>
+                <CoursesTable/>
             </div>
     
     </>)
