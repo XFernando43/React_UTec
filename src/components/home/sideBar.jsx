@@ -48,7 +48,7 @@ export default function SideBarHomePage() {
                     <i className="rounded-full pi pi-user text-white bg-black p-3" style={{ fontSize: '2rem' }}></i>
                     <div className="space-y-0">
                         <span className=" font-semibold">Nombre Admin</span>
-                        <p className="font-normal text-slate-200">admin@gmail.com</p>
+                        <p className="font-normal text-gray-500">admin@gmail.com</p>
                     </div>
                 </header>
 

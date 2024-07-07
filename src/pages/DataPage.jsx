@@ -1,15 +1,11 @@
-import TeacherTable from "../components/home/teachersTable"
-import TableHeader from "../components/home/tableHeader"
+import TableSection from "../components/home/TablesSections"
 import SideBarHomePage from "../components/home/sideBar"
 export default function HomePage(){
     return(
-        <div className="min-h-screen grid grid-cols-[20%_80%] bg-slate-100">
+        <div className="min-h-screen flex bg-slate-100">
             
             <SideBarHomePage></SideBarHomePage>
-            <div className="flex flex-col items-center justify-center">
-                <TableHeader></TableHeader>
-                <TeacherTable/>
-            </div>
+            <TableSection/>
         </div>
     )
 }
