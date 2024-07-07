@@ -2,37 +2,37 @@
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
-import { Button } from "primereact/button";
-import React from "react";
-import { RadioButton } from "primereact/radiobutton";
-import { Calendar } from 'primereact/calendar';
-import { Sidebar } from 'primereact/sidebar';
-import { Dropdown } from 'primereact/dropdown';
+// import { Button } from "primereact/button";
+// import React from "react";
+// import { RadioButton } from "primereact/radiobutton";
+// import { Calendar } from 'primereact/calendar';
+// import { Sidebar } from 'primereact/sidebar';
+// import { Dropdown } from 'primereact/dropdown';
 
-const categories = [
-  { name: 'Accounting', key: 'A' },
-  { name: 'Marketing', key: 'M' },
-  { name: 'Production', key: 'P' },
-  { name: 'Research', key: 'R' }
-];
+// const categories = [
+//   { name: 'Accounting', key: 'A' },
+//   { name: 'Marketing', key: 'M' },
+//   { name: 'Production', key: 'P' },
+//   { name: 'Research', key: 'R' }
+// ];
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = React.useState(categories[1]);
-  const [date, setDate] = React.useState(null);
-  const [visible, setVisible] = React.useState(false);
-  const [selectedCity, setSelectedCity] = React.useState(null);
-  const cities = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
-  ];
+//   const [selectedCategory, setSelectedCategory] = React.useState(categories[1]);
+//   const [date, setDate] = React.useState(null);
+//   const [visible, setVisible] = React.useState(false);
+//   const [selectedCity, setSelectedCity] = React.useState(null);
+//   const cities = [
+//       { name: 'New York', code: 'NY' },
+//       { name: 'Rome', code: 'RM' },
+//       { name: 'London', code: 'LDN' },
+//       { name: 'Istanbul', code: 'IST' },
+//       { name: 'Paris', code: 'PRS' }
+//   ];
 
 
   return (
     <>
-      <Button label="Submit" />
+      {/* <Button label="Submit" />
 
       <div className="card flex justify-content-center">
             <div className="flex flex-column gap-3">
@@ -45,13 +45,13 @@ function App() {
                     );
                 })}
             </div>
-        </div>
+        </div> */}
 
-        <div className="card flex justify-content-center">
+        {/* <div className="card flex justify-content-center">
             <Calendar value={date} onChange={(e) => setDate(e.value)} />
-        </div>
+        </div> */}
 
-        <div className="card flex justify-content-center">
+        {/* <div className="card flex justify-content-center">
             <Sidebar visible={visible} onHide={() => setVisible(false)}>
                 <h2>Sidebar</h2>
                 <p>
@@ -60,12 +60,12 @@ function App() {
                 </p>
             </Sidebar>
             <Button icon="pi pi-arrow-right" onClick={() => setVisible(true)} />
-        </div>
+        </div> */}
 
-        <div className="card flex justify-content-center">
+        {/* <div className="card flex justify-content-center">
             <Dropdown value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="name" 
                 placeholder="Select a City" className="w-full md:w-14rem" />
-        </div>
+        </div> */}
     </>
   );
 }

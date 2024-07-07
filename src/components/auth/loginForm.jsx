@@ -11,7 +11,7 @@ export default function LoginForm(){
 
     const header = (
         // <img alt="user header" src="../../assets/329182497_580658887303089_6817430973110470755_n.jpg" className="pointer-events-none" />
-        <Image src="https://static-cdn.jtvnw.net/jtv_user_pictures/b661c2ac-7563-4815-8762-0f0a8686c87e-profile_image-300x300.png" alt="Image" width="250" className='pointer-events-none' />
+        <Image src="https://static-cdn.jtvnw.net/jtv_user_pictures/b661c2ac-7563-4815-8762-0f0a8686c87e-profile_image-300x300.png" alt="Image" width="250" className='pointer-events-none'/>
         // <Image src="../../assets/react.svg" alt="Image" width="250" className='pointer-events-none' />
 
         // <h1>PIPIPI</h1>
@@ -19,7 +19,7 @@ export default function LoginForm(){
 
     const footer = (
         <div className="flex gap-3 mt-1">
-            <Button label="Register" severity="help" outlined className="w-full" onClick={() => redirectToRoute()} />
+            <Button label="Register" severity="warning"  outlined className="w-full hover:bg-red-600 hover:text-white" onClick={() => redirectToRoute()} />
             <Button label="Login" className="w-full" />
         </div>
     );
