@@ -1,35 +1,44 @@
-import { Button } from 'primereact/button';
 import { IconField } from 'primereact/iconfield';
 import { InputIcon } from 'primereact/inputicon';
 import { InputText } from 'primereact/inputtext';
-
+import { Button } from 'primereact/button';
 export default function TableHeader(){
     return(
-        <div className='flex flex-row gap-5 items-center justify-center'>
+        <div className='p-4 bg-white flex flex-row gap-5 items-center justify-center'>
             <IconField iconPosition="left">
                 <InputIcon className="pi pi-search"> </InputIcon>
                 <InputText v-model="value1" placeholder="Search" />
             </IconField>
                 
-            <Button className='flex gap-4'>
-                <i className='pi pi-cloud-upload'></i>
-                <span>Crear</span>
-            </Button>
+            
+            <Button 
+                icon="pi pi-cloud-upload"
+                label="Crear" 
+                // onClick={() => setVisible(true)}
+                className=" text-blue-600 bg-white p-0 border-none font-semibold hover:text-blue-950"
+            />
 
-            <Button severity='warning' className='flex gap-4'>
-                <i className='pi pi-sync'></i>
-                <span>Recargar</span>
-            </Button>
+            <Button 
+                icon="pi pi-sync"
+                label="Recargar" 
+                // onClick={() => setVisible(true)}
+                className=" text-blue-600 bg-white p-0 border-none font-semibold hover:text-blue-950"
+            />
+            
+            <Button 
+                icon="pi pi-download"
+                label="Descargar" 
+                // onClick={() => setVisible(true)}
+                className=" text-blue-600 bg-white p-0 border-none font-semibold hover:text-blue-950"
+            />
 
-            <Button severity='help' className='flex gap-4'>
-                <i className='pi pi-download'></i>
-                <span>Descargar</span>
-            </Button>
+            <Button 
+                icon="pi pi-trash"
+                label="Eliminar" 
+                // onClick={() => setVisible(true)}
+                className=" text-blue-600 bg-white p-0 border-none font-semibold hover:text-blue-950"
+            />
 
-            <Button severity='danger' className='flex gap-4'>
-                <i className='pi pi-trash'></i>
-                <span>Eliminar</span>
-            </Button>
         </div>
     );
 }

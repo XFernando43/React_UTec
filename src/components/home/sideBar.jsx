@@ -3,6 +3,29 @@ import { Sidebar } from "primereact/sidebar";
 // import { Button } from 'primereact/button';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 
+const Administration_accordeonHeader = (
+    <div className="flex flex-row gap-2">
+        <i className="pi pi-database"></i>
+        <span className="font-semibold">Administración</span>
+    </div>
+);
+
+const Nosape_accordeonHeader = (
+    <div className="flex flex-row gap-2">
+        <i className="pi pi-database"></i>
+        <span className="font-semibold">Nop Sabe</span>
+    </div>
+);
+
+const Home_accordeonHeader = (
+    <div className="flex flex-row gap-2">
+        <i className="pi pi-home"></i>
+        <span className="font-semibold">Home</span>
+    </div>
+);
+
+
+
 export default function SideBarHomePage() {
     const [visible, setVisible] = useState(false);
 
@@ -19,49 +42,59 @@ export default function SideBarHomePage() {
             </Sidebar>
             {/* <Button label='PIPI' icon="pi pi-arrow-right" onClick={() => setVisible(true)} /> */}
 
-            <div className="bg-blue-500 max-w-sm flex flex-col gap-4 ">
-                <header className="flex items-center">
-                    <i className="pi pi-user text-5xl"></i>
-                    <div className="flex flex-col ">
-                        <span>Nombre Admin</span>
-                        <p>admin@gmail.com</p>
+            <div className="bg-blue-300 max-w-sm flex flex-col gap-12 p-5">
+
+                <header className="flex flex-row gap-4 items-center">
+                    <i className="rounded-full pi pi-user text-white bg-black p-3" style={{ fontSize: '2rem' }}></i>
+                    <div className="space-y-0">
+                        <span className=" font-semibold">Nombre Admin</span>
+                        <p className="font-normal text-slate-200">admin@gmail.com</p>
                     </div>
                 </header>
+
                 <main className="flex flex-col gap-5">
-                    <button>
-                        <i className="pi pi-home"></i>
-                        <span>Home</span>
-                    </button>
-
                     <Accordion activeIndex={1}>
-                        <AccordionTab header="Administrador">
-                            <div className="flex flex-col gap-5">
-                                <button>Foros</button>
-                                <button>Profesores</button>
-                                <button>Cursos</button>
-                                <button>Carreras</button>
-                                <button>Universidades</button>
-                            </div>
+                        <AccordionTab header={Home_accordeonHeader}>
+                            <ul>
+                                <li className=" list-none text-black hover:text-white">Foros</li>
+                                <li className=" list-none text-black hover:text-white">Profesores</li>
+                                <li className=" list-none text-black hover:text-white">Cursos</li>
+                                <li className=" list-none text-black hover:text-white">Carreras</li>
+                                <li className=" list-none text-black hover:text-white">Universidades</li>
+                            </ul>
                         </AccordionTab>
                     </Accordion>
 
                     <Accordion activeIndex={1}>
-                        <AccordionTab header="no sepo">
-                            <div className="flex flex-col gap-5">
-                                <button>Foros</button>
-                                <button>Profesores</button>
-                                <button>Cursos</button>
-                                <button>Carreras</button>
-                                <button>Universidades</button>
-                            </div>
+                        <AccordionTab header={Administration_accordeonHeader}>
+                            <ul>
+                                <li className=" list-none text-black hover:text-white">Foros</li>
+                                <li className=" list-none text-black hover:text-white">Profesores</li>
+                                <li className=" list-none text-black hover:text-white">Cursos</li>
+                                <li className=" list-none text-black hover:text-white">Carreras</li>
+                                <li className=" list-none text-black hover:text-white">Universidades</li>
+                            </ul>
                         </AccordionTab>
                     </Accordion>
 
-                    <button className="flex gap-2">
+                    <Accordion activeIndex={1}>
+                        <AccordionTab header={Nosape_accordeonHeader}>
+                            <ul>
+                                <li className=" list-none text-black hover:text-white">Foros</li>
+                                <li className=" list-none text-black hover:text-white">Profesores</li>
+                                <li className=" list-none text-black hover:text-white">Cursos</li>
+                                <li className=" list-none text-black hover:text-white">Carreras</li>
+                                <li className=" list-none text-black hover:text-white">Universidades</li>
+
+                            </ul>
+                        </AccordionTab>
+                    </Accordion>
+
+                    <div className="flex gap-2">
                         <i className="pi pi-cog"></i>
                         Configuracion
 
-                    </button>
+                    </div>
 
                 </main>
             </div>

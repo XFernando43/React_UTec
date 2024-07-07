@@ -51,7 +51,7 @@ export default function TeacherTable() {
       ]);
   return (
     <div>
-      <DataTable value={products} tableStyle={{ minWidth: "50rem" }}>
+      <DataTable value={products} showGridlines tableStyle={{ minWidth: "50rem" }}>
       <Column field="code" header="ID"></Column>
         <Column field="name" header="NOMBRE"></Column>
         <Column field="category" header="Autor"></Column>
