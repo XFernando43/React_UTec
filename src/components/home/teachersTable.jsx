@@ -52,13 +52,13 @@ export default function TeacherTable() {
   return (
     <div>
       <DataTable value={products} tableStyle={{ minWidth: "50rem" }}>
-        <Column field="code" header="ID"></Column>
+      <Column field="code" header="ID"></Column>
         <Column field="name" header="NOMBRE"></Column>
         <Column field="category" header="Autor"></Column>
-        <Column field="quantity" header="Description"></Column>
-        <Column field="quantity" header="Usuarios"></Column>
-        <Column field="quantity" header="Posts"></Column>
-        <Column field="quantity" header="Accion"></Column>
+        <Column field="description" header="Description"></Column>
+        <Column field="users" header="Usuarios"></Column>
+        <Column field="posts" header="Posts"></Column>
+        <Column field="action" header="Accion"></Column>
       </DataTable>
     </div>
   );
