@@ -19,6 +19,25 @@ async function getTeachers() {
   }
 }
 
+async function deleteTeacher(id) {
+  try {
+    const response = await fetch(`http://localhost:3000/teachers/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    console.log(`Teacher with ID ${id} deleted successfully`);
+    return true;
+  } catch (error) {
+    console.error(`Error deleting teacher with ID ${id}:`, error);
+    return false;
+  }
+}
+
 export default function TeacherTable() {
   const [teachers, setTeachers] = useState([]);
 
@@ -26,17 +45,21 @@ export default function TeacherTable() {
     getTeachers().then(data => {
       setTeachers(data);
     });
-  }, []);
+  }, [teachers]);
 
-  const deleteUniversity = (code) => {
-    console.log(`Delete university with code: ${code}`);
+  const handleDeleteTeacher = async (id) => {
+    const deleted = await deleteTeacher(id);
+    if (deleted) {
+      const updatedTeachers = teachers.filter(teacher => teacher.ID !== id);
+      setTeachers(updatedTeachers);
+    }
   };
- 
+
   const actionBodyTemplate = (rowData) => {
     return (
       <div className="flex gap-4">
         <Button label="Editar" className="p-button-success p-mr-2" />
-        <Button label="Eliminar" className="p-button-danger" onClick={() => deleteUniversity(rowData.code)} />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => handleDeleteTeacher(rowData.id)} />
       </div>
     );
   };
@@ -56,7 +79,7 @@ export default function TeacherTable() {
         showGridlines
         tableStyle={{ minWidth: "50rem" }}
       >
-        <Column field="code" header="ID"></Column>
+        <Column field="id" header="id"></Column>
         <Column field="name" header="NOMBRE"></Column>
         <Column field="category" header="Categoría"></Column>
         <Column field="description" header="Descripción"></Column>

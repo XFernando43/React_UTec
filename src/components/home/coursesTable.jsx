@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
@@ -15,29 +15,51 @@ async function getCourses() {
     return data;
   } catch (error) {
     console.error('Error fetching courses:', error);
+    return []; // Return an empty array if there's an error
+  }
+}
+
+async function deleteUniversity(code) {
+  try {
+    const response = await fetch(`http://localhost:3000/courses/${code}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    console.log(`University with code ${code} deleted successfully`);
+    return true;
+  } catch (error) {
+    console.error(`Error deleting university with code ${code}:`, error);
+    return false;
   }
 }
 
 export default function CourseTable() {
-  const [products, setProducts] = React.useState([]);
+  const [courses, setCourses] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getCourses().then(data => {
-      if (data) {
-        setProducts(data);
-      }
+      setCourses(data);
     });
   }, []);
 
-  const deleteUniversity = (code) => {
-    console.log(`Delete university with code: ${code}`);
+  const handleDeleteUniversity = async (code) => {
+    const deleted = await deleteUniversity(code);
+    if (deleted) {
+      const updatedCourses = courses.filter(course => course.code !== code);
+      setCourses(updatedCourses);
+    }
   };
 
   const actionBodyTemplate = (rowData) => {
     return (
       <div className="flex gap-4">
         <Button label="Editar" className="p-button-success p-mr-2" />
-        <Button label="Eliminar" className="p-button-danger" onClick={() => deleteUniversity(rowData.code)} />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => handleDeleteUniversity(rowData.code)} />
       </div>
     );
   };
@@ -49,8 +71,8 @@ export default function CourseTable() {
         <p className="font-semibold text-2xl">Course Management</p>
       </div>
       <TableHeader />
-      <DataTable value={products} showGridlines tableStyle={{ minWidth: "50rem" }}>
-        <Column field="code" header="ID"></Column>
+      <DataTable value={courses} showGridlines tableStyle={{ minWidth: "50rem" }}>
+        <Column field="id" header="ID"></Column>
         <Column field="name" header="Nombre"></Column>
         <Column field="teacherCode" header="Código del Profesor"></Column>
         <Column body={actionBodyTemplate} header="Acción"></Column>
