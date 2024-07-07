@@ -11,11 +11,26 @@ async function getCareers() {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log('Careers:', data);
     return data;
   } catch (error) {
-    console.error('Error fetching careers:', error);
     return []; // Return an empty array if there's an error
+  }
+}
+
+async function deleteCareer(code) {
+  try {
+    const response = await fetch(`http://localhost:3000/careers/${code}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return true;
+  } catch (error) {
+    return false;
   }
 }
 
@@ -26,18 +41,17 @@ export default function CareerTable() {
     getCareers().then(data => {
       setCareers(data);
     });
-  }, []);
+  }, [careers]);
 
-  const deleteCareer = (code) => {
-    // Implementar la lógica para eliminar una carrera aquí
-    console.log(`Delete career with code: ${code}`);
+  const handleDeleteCareer = async (code) => {
+    deleteCareer(code);
   };
 
   const actionBodyTemplate = (rowData) => {
     return (
       <div className="flex gap-4">
         <Button label="Editar" className="p-button-success p-mr-2" />
-        <Button label="Eliminar" className="p-button-danger" onClick={() => deleteCareer(rowData.code)} />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => handleDeleteCareer(rowData.id)} />
       </div>
     );
   };
@@ -50,7 +64,7 @@ export default function CareerTable() {
       </div>
       <TableHeader />
       <DataTable value={careers} showGridlines tableStyle={{ minWidth: "50rem" }}>
-        <Column field="code" header="ID"></Column>
+        <Column field="id" header="ID"></Column>
         <Column field="name" header="Nombre"></Column>
         <Column field="department" header="Departamento"></Column>
         <Column field="duration" header="Duración (años)"></Column>
