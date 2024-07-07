@@ -1,0 +1,222 @@
+{
+    "teachers": [
+      {
+        "code": "T001",
+        "name": "John Doe",
+        "category": "Mathematics",
+        "description": "Experienced Math teacher",
+        "users": 120,
+        "posts": 35,
+        "action": "Edit"
+      },
+      {
+        "code": "T002",
+        "name": "Jane Smith",
+        "category": "Science",
+        "description": "Expert in Physics",
+        "users": 95,
+        "posts": 50,
+        "action": "Edit"
+      },
+      {
+        "code": "T003",
+        "name": "Emily Johnson",
+        "category": "History",
+        "description": "Specialist in Modern History",
+        "users": 110,
+        "posts": 45,
+        "action": "Edit"
+      },
+      {
+        "code": "T004",
+        "name": "Michael Brown",
+        "category": "Literature",
+        "description": "Focus on English Literature",
+        "users": 85,
+        "posts": 25,
+        "action": "Edit"
+      },
+      {
+        "code": "T005",
+        "name": "Chris Davis",
+        "category": "Physical Education",
+        "description": "Sports and Fitness Expert",
+        "users": 130,
+        "posts": 30,
+        "action": "Edit"
+      }
+    ],
+    "courses": [
+      {
+        "code": "C001",
+        "name": "Algebra I",
+        "teacherCode": "T001"
+      },
+      {
+        "code": "C002",
+        "name": "Geometry",
+        "teacherCode": "T001"
+      },
+      {
+        "code": "C003",
+        "name": "Calculus",
+        "teacherCode": "T001"
+      },
+      {
+        "code": "C004",
+        "name": "Physics I",
+        "teacherCode": "T002"
+      },
+      {
+        "code": "C005",
+        "name": "Quantum Mechanics",
+        "teacherCode": "T002"
+      },
+      {
+        "code": "C006",
+        "name": "Thermodynamics",
+        "teacherCode": "T002"
+      },
+      {
+        "code": "C007",
+        "name": "World War II",
+        "teacherCode": "T003"
+      },
+      {
+        "code": "C008",
+        "name": "Renaissance History",
+        "teacherCode": "T003"
+      },
+      {
+        "code": "C009",
+        "name": "Modern European History",
+        "teacherCode": "T003"
+      },
+      {
+        "code": "C010",
+        "name": "Shakespearean Literature",
+        "teacherCode": "T004"
+      },
+      {
+        "code": "C011",
+        "name": "Modern American Literature",
+        "teacherCode": "T004"
+      },
+      {
+        "code": "C012",
+        "name": "Poetry Analysis",
+        "teacherCode": "T004"
+      },
+      {
+        "code": "C013",
+        "name": "Fitness Training",
+        "teacherCode": "T005"
+      },
+      {
+        "code": "C014",
+        "name": "Sports Medicine",
+        "teacherCode": "T005"
+      },
+      {
+        "code": "C015",
+        "name": "Nutrition",
+        "teacherCode": "T005"
+      }
+    ],
+    "universities": [
+      {
+        "code": "U001",
+        "name": "Harvard University",
+        "category": "Ivy League",
+        "description": "Prestigious university in Cambridge, MA",
+        "users": 20000,
+        "posts": 500,
+        "action": "Edit"
+      },
+      {
+        "code": "U002",
+        "name": "MIT",
+        "category": "Technology",
+        "description": "Leading research university in Cambridge, MA",
+        "users": 10000,
+        "posts": 400,
+        "action": "Edit"
+      },
+      {
+        "code": "U003",
+        "name": "Stanford University",
+        "category": "Private",
+        "description": "Renowned university in Stanford, CA",
+        "users": 15000,
+        "posts": 300,
+        "action": "Edit"
+      },
+      {
+        "code": "U004",
+        "name": "University of Oxford",
+        "category": "Public",
+        "description": "Historic university in Oxford, England",
+        "users": 25000,
+        "posts": 600,
+        "action": "Edit"
+      },
+      {
+        "code": "U005",
+        "name": "University of Cambridge",
+        "category": "Public",
+        "description": "Historic university in Cambridge, England",
+        "users": 24000,
+        "posts": 580,
+        "action": "Edit"
+      }
+    ],
+    "careers":[
+      {
+        "code": "CR001",
+        "name": "Computer Science",
+        "department": "Engineering",
+        "duration": 4,
+        "credits": 120,
+        "degree": "Bachelor's",
+        "action": "Edit"
+      },
+      {
+        "code": "CR002",
+        "name": "Mechanical Engineering",
+        "department": "Engineering",
+        "duration": 4,
+        "credits": 120,
+        "degree": "Bachelor's",
+        "action": "Edit"
+      },
+      {
+        "code": "CR003",
+        "name": "Business Administration",
+        "department": "Business",
+        "duration": 3,
+        "credits": 90,
+        "degree": "Bachelor's",
+        "action": "Edit"
+      },
+      {
+        "code": "CR004",
+        "name": "Psychology",
+        "department": "Social Sciences",
+        "duration": 4,
+        "credits": 120,
+        "degree": "Bachelor's",
+        "action": "Edit"
+      },
+      {
+        "code": "CR005",
+        "name": "Medicine",
+        "department": "Health Sciences",
+        "duration": 6,
+        "credits": 180,
+        "degree": "Doctorate",
+        "action": "Edit"
+      }
+    ]
+    
+  }
+  
