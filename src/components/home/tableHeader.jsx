@@ -4,7 +4,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 export default function TableHeader(){
     return(
-        <div className='p-4 bg-white flex flex-row gap-5 items-center justify-center'>
+        <div className='p-4 bg-white flex flex-row gap-5 '>
             <IconField iconPosition="left">
                 <InputIcon className="pi pi-search"> </InputIcon>
                 <InputText v-model="value1" placeholder="Search" />
