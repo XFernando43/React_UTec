@@ -1,7 +1,8 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import TableHeader from "./tableHeader";
+import { Button } from "primereact/button";
 
 async function getTeachers() {
   try {
@@ -14,19 +15,31 @@ async function getTeachers() {
     return data;
   } catch (error) {
     console.error('Error fetching teachers:', error);
+    return []; // Return an empty array if there's an error
   }
 }
 
 export default function TeacherTable() {
-  const [products, setProducts] = React.useState([]);
+  const [teachers, setTeachers] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getTeachers().then(data => {
-      if (data) {
-        setProducts(data);
-      }
+      setTeachers(data);
     });
   }, []);
+
+  const deleteUniversity = (code) => {
+    console.log(`Delete university with code: ${code}`);
+  };
+ 
+  const actionBodyTemplate = (rowData) => {
+    return (
+      <div className="flex gap-4">
+        <Button label="Editar" className="p-button-success p-mr-2" />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => deleteUniversity(rowData.code)} />
+      </div>
+    );
+  };
 
   return (
     <div>
@@ -39,17 +52,17 @@ export default function TeacherTable() {
 
       <TableHeader />
       <DataTable
-        value={products}
+        value={teachers}
         showGridlines
         tableStyle={{ minWidth: "50rem" }}
       >
         <Column field="code" header="ID"></Column>
         <Column field="name" header="NOMBRE"></Column>
-        <Column field="category" header="Autor"></Column>
-        <Column field="description" header="Description"></Column>
+        <Column field="category" header="Categoría"></Column>
+        <Column field="description" header="Descripción"></Column>
         <Column field="users" header="Usuarios"></Column>
-        <Column field="posts" header="Posts"></Column>
-        <Column field="action" header="Accion"></Column>
+        <Column field="posts" header="Publicaciones"></Column>
+        <Column body={actionBodyTemplate} header="Acción"></Column>
       </DataTable>
     </div>
   );

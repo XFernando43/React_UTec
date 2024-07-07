@@ -4,9 +4,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { Card } from 'primereact/card';
-
 import React from 'react';
-
 
 const footer = (
     <div className="flex gap-3 mt-1">
@@ -14,8 +12,6 @@ const footer = (
         <Button label="Cancelar" severity='danger' className="w-full" />
     </div>
 );
-
-
 
 export default function TableHeader() {
     const [visible, setVisible] = React.useState(false);

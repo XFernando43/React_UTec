@@ -1,6 +1,7 @@
 import React from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Button } from "primereact/button";
 import TableHeader from "./tableHeader";
 
 async function getCourses() {
@@ -28,6 +29,19 @@ export default function CourseTable() {
     });
   }, []);
 
+  const deleteUniversity = (code) => {
+    console.log(`Delete university with code: ${code}`);
+  };
+
+  const actionBodyTemplate = (rowData) => {
+    return (
+      <div className="flex gap-4">
+        <Button label="Editar" className="p-button-success p-mr-2" />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => deleteUniversity(rowData.code)} />
+      </div>
+    );
+  };
+
   return (
     <div className="bg-white"> 
       <div className="px-4 flex items-center gap-5">
@@ -39,6 +53,7 @@ export default function CourseTable() {
         <Column field="code" header="ID"></Column>
         <Column field="name" header="Nombre"></Column>
         <Column field="teacherCode" header="Código del Profesor"></Column>
+        <Column body={actionBodyTemplate} header="Acción"></Column>
       </DataTable>
     </div>
   );

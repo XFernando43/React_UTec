@@ -1,6 +1,7 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Button } from "primereact/button";
 import TableHeader from "./tableHeader";
 
 async function getUniversities() {
@@ -14,36 +15,47 @@ async function getUniversities() {
     return data;
   } catch (error) {
     console.error('Error fetching universities:', error);
+    return []; // Return an empty array if there's an error
   }
 }
 
-
 export default function UniversityTable() {
-  const [products, setProducts] = React.useState([]);
+  const [universities, setUniversities] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getUniversities().then(data => {
-      if (data) {
-        setProducts(data);
-      }
+      setUniversities(data);
     });
   }, []);
 
+  const deleteUniversity = (code) => {
+    console.log(`Delete university with code: ${code}`);
+  };
+
+  const actionBodyTemplate = (rowData) => {
+    return (
+      <div className="flex gap-4">
+        <Button label="Editar" className="p-button-success p-mr-2" />
+        <Button label="Eliminar" className="p-button-danger" onClick={() => deleteUniversity(rowData.code)} />
+      </div>
+    );
+  };
+
   return (
-    <div className="bg-white"> 
+    <div className="bg-white">
       <div className="px-4 flex items-center gap-5">
         <i className="pi pi-server"></i>
-        <p className="font-semibold text-2xl">University Management</p>
+        <p className="font-semibold text-2xl">Gestión de Universidades</p>
       </div>
       <TableHeader />
-      <DataTable value={products} showGridlines tableStyle={{ minWidth: "50rem" }}>
+      <DataTable value={universities} showGridlines tableStyle={{ minWidth: "50rem" }}>
         <Column field="code" header="ID"></Column>
         <Column field="name" header="Nombre"></Column>
-        <Column field="category" header="teacherCode"></Column>
+        <Column field="category" header="Categoría"></Column>
         <Column field="description" header="Descripción"></Column>
         <Column field="users" header="Usuarios"></Column>
         <Column field="posts" header="Posts"></Column>
-        <Column field="action" header="Acción"></Column>
+        <Column body={actionBodyTemplate} header="Acción"></Column>
       </DataTable>
     </div>
   );
