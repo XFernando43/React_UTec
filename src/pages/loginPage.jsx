@@ -5,7 +5,7 @@ export default function LoginPage(){
     return(
         <>
 
-        <h1>LOGIN PAGE</h1>
+        <h1 className="text-green-500">LOGIN PAGE</h1>
         
         </>
     )
